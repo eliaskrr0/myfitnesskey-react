@@ -46,36 +46,103 @@ export default function UserLogin() {
 
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Container>
+      <Container component={"main"} maxWidth="xs">
         <CssBaseline />
-        <Box>
-          <Avatar>
+        
+        {/* Caja principal */}
+        <Box
+          sx={{
+            marginTop: 8,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          
+          {/* Icono del candado */}
+          <Avatar
+            sx={{
+              m: 1,
+              bgcolor: "secondary.main",
+            }}
+          >
             <LockOutlinedIcon />
           </Avatar>
-          <Typography>Iniciar sesión</Typography>
-          <Box>
-            <TextField id="email" label="Email" name="email" autoFocus />
+          {/* Icono del candado */}
+
+          <Typography component={"h1"} variant="h5">
+            Iniciar sesión
+          </Typography>
+
+          {/* Caja con los elementos del formulario */}
+          <Box
+            component="form"
+            onSubmit={handleSubmit}
+            noValidate
+            sx={{ mt: 1 }}
+          >
+            
+            {/* Email */}
+            <TextField
+              id="email"
+              label="Email"
+              name="email"
+              required
+              autoFocus
+              margin="normal"
+              fullWidth
+              autoComplete="email"
+            />
+            {/* Email */}
+
+
+            {/* Contraseña */}
             <TextField
               id="password"
               label="Password"
               name="password"
+              required
               autoFocus
+              margin="normal"
+              fullWidth
+              autoComplete="current-password"
             />
+            {/* Contraseña */}
+            
+            {/* Opción para recordar sesión */}
             <FormControlLabel
               control={<Checkbox value="remeber" color="primary" />}
+              label="Recuérdame"
             />
-            <Button type="submit">Iniciar sesión</Button>
+            {/* Opción para recordar sesión */}
+
+            {/* Iniciar sesión */}
+            <Button type="submit" fullWidth variant="contained" sx={{ mt: 3, mb: 2}}>Iniciar sesión</Button>
+            {/* Iniciar sesión */}
+            
+            
             <Grid container>
+              {/* Formulario para pedir una nueva contraseña */}
               <Grid item>
                 <Link>¿Contraseña olvidada?</Link>
               </Grid>
+              {/* Formulario para pedir una nueva contraseña */}
+
+              {/* Formulario para registrarse */}
               <Grid item>
-                <Link>{"¿Aún no tienes cuenta? Regístrate"}</Link>
+                <Link>{"¿Aún no tienes una cuenta? Regístrate"}</Link>
               </Grid>
+              {/* Formulario para registrarse */}
             </Grid>
+            
+
           </Box>
+          {/* Caja con los elementos del formulario */}
+
         </Box>
-        <CoypRight/>
+        {/* Caja principal */}
+
+        <CoypRight sx={{ mt: 8, mb: 4 }}/>
       </Container>
     </ThemeProvider>
   );
